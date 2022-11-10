@@ -7,6 +7,9 @@
  * @brief   A doubly linked list test
 */
 
+#ifndef D_LINKED_LIST_TEST_H
+#define D_LINKED_LIST_TEST_H
+
 #include <iostream>
 #include <list>
 #include <DoublyLinkedList.h>
@@ -35,7 +38,7 @@ namespace dsa {
             }
     };
 
-#if 1
+#if 0
     TEST_F(LinkListTest, testEmptyList) {
         EXPECT_TRUE(list->empty());
         EXPECT_EQ(list->size(), 0);
@@ -183,5 +186,7 @@ namespace dsa {
     }
 
 
-#endif
+#endif  /* if 0 */
 }   /* namespace dsa */
+
+#endif /* D_LINKED_LIST_H */
