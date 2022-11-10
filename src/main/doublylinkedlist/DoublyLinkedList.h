@@ -212,6 +212,7 @@ namespace dsa {
             using const_iterator = __list_const_iterator<_Tp>;
             using reference = typename iterator::reference;
             using const_reference = typename const_iterator::reference;
+            using value_type = _Tp;
 
             doubly_linked_list() : __size_{0}, __head_{nullptr}, __tail_{nullptr} {}
 
@@ -240,7 +241,9 @@ namespace dsa {
             const_reference back() const {return __tail_->__value_;}
 
             /* Modifiers */
+            void push_back(const _Tp& value);
             void push_back(_Tp&& value);
+            void push_front(const _Tp& value);
             void push_front(_Tp&& value);
 
             template <class... _Args>
@@ -382,6 +385,17 @@ void dsa::doubly_linked_list<_Tp>::push_back(_Tp&& __x) {
     __link_nodes_as_back(hold, hold);
 }
 
+template <class _Tp>
+void dsa::doubly_linked_list<_Tp>::push_back(const _Tp& __x) {
+    typename _Alloc::allocator_type __na;
+    typename _Alloc::pointer hold = _Alloc::allocate(__na, 1);
+    
+    typename std::allocator_traits<std::allocator<_Tp>>::allocator_type __nodeAlloc;
+    std::allocator_traits<std::allocator<_Tp>>::construct(__nodeAlloc, std::addressof(hold->__value_), __x);
+
+    __link_nodes_as_back(hold, hold);
+}
+
 /**
 ** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 **
@@ -405,6 +419,17 @@ void dsa::doubly_linked_list<_Tp>::push_front(_Tp&& __x) {
     
     typename std::allocator_traits<std::allocator<_Tp>>::allocator_type __nodeAlloc;
     std::allocator_traits<std::allocator<_Tp>>::construct(__nodeAlloc, std::addressof(hold->__value_), std::move(__x));
+
+    __link_nodes_as_front(hold, hold);
+}
+
+template <class _Tp>
+void dsa::doubly_linked_list<_Tp>::push_front(const _Tp& __x) {
+    typename _Alloc::allocator_type __na;
+    typename _Alloc::pointer hold = _Alloc::allocate(__na, 1);
+    
+    typename std::allocator_traits<std::allocator<_Tp>>::allocator_type __nodeAlloc;
+    std::allocator_traits<std::allocator<_Tp>>::construct(__nodeAlloc, std::addressof(hold->__value_), __x);
 
     __link_nodes_as_front(hold, hold);
 }

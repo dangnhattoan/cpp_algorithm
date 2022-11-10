@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "DoublyLinkedListTest.h"
+#include "StackTest.h"
 
 int main(int argc, char* argv[])
 {
