@@ -16,8 +16,12 @@
 #include <memory>
 #include <iterator>
 #include <type_traits>
-#include <__cxx_version>
+// #include <__cxx_version>
 #include <assert.h>
+
+#define _LIBCPP_TEMPLATE_VIS  _GLIBCXX_VISIBILITY(default)
+#define _LIBCPP_INLINE_VISIBILITY _GLIBCXX_VISIBILITY(hidden)
+#define _LIBCPP_NODISCARD_ATTRIBUTE _GLIBCXX_NODISCARD
 
 namespace dsa {
     template < class _Tp>
@@ -201,12 +205,12 @@ namespace dsa {
             using _Alloc = std::allocator_traits<std::allocator<__list_node<_Tp>>>;
 
             using __node_alloc_traits = std::allocator_traits<std::allocator<__list_node<_Tp>>>;
-            using __node_allocator = typename std::__rebind_alloc_helper<__node_alloc_traits, __list_node<_Tp>>::type; 
+            // using __node_allocator = typename std::__rebind_alloc_helper<__node_alloc_traits, __list_node<_Tp>>::type; 
             using size_type = typename __node_alloc_traits::size_type; 
             using __node_pointer = typename __node_alloc_traits::pointer; 
 
-            using __node_destructor = std::__allocator_destructor<__node_allocator>;
-            using __hold_pointer = std::unique_ptr<__list_node<_Tp>, __node_destructor>;
+            // using __node_destructor = std::__allocator_destructor<__node_allocator>;
+            // using __hold_pointer = std::unique_ptr<__list_node<_Tp>, __node_destructor>;
 
             using iterator = __list_iterator<_Tp>;
             using const_iterator = __list_const_iterator<_Tp>;
@@ -263,19 +267,19 @@ namespace dsa {
             std::size_t __size_;
             __list_node<_Tp> * __head_;
             __list_node<_Tp> * __tail_;
-            std::__compressed_pair<size_type, __node_allocator> __size_alloc; 
+            // std::__compressed_pair<size_type, __node_allocator> __size_alloc; 
             
-            _LIBCPP_INLINE_VISIBILITY
-            __node_allocator& __node_alloc() noexcept {
-                return __size_alloc.second(); 
-            }
+            // _LIBCPP_INLINE_VISIBILITY
+            // __node_allocator& __node_alloc() noexcept {
+            //     return __size_alloc.second(); 
+            // }
 
-            _LIBCPP_INLINE_VISIBILITY
-            __hold_pointer __allocate_node(__node_allocator& __na) {
-                __node_pointer __p = __node_alloc_traits::allocate(__na, 1); 
-                __p->__prev_ = nullptr;
-                return __hold_pointer(__p, __node_destructor(__na, 1));
-            }
+            // _LIBCPP_INLINE_VISIBILITY
+            // __hold_pointer __allocate_node(__node_allocator& __na) {
+            //     __node_pointer __p = __node_alloc_traits::allocate(__na, 1); 
+            //     __p->__prev_ = nullptr;
+            //     return __hold_pointer(__p, __node_destructor(__na, 1));
+            // }
 
             inline void __link_nodes_as_back(__node_pointer __f, __node_pointer __l);
             inline void __link_nodes_as_front(__node_pointer __f, __node_pointer __l);
