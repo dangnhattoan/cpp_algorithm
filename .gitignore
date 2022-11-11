@@ -3,3 +3,4 @@
 .class
 .DS_Store
 *.dSYM
+src/test/build/

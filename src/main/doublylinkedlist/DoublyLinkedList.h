@@ -19,9 +19,11 @@
 // #include <__cxx_version>
 #include <assert.h>
 
+#if defined(__GNUC__)
 #define _LIBCPP_TEMPLATE_VIS  _GLIBCXX_VISIBILITY(default)
 #define _LIBCPP_INLINE_VISIBILITY _GLIBCXX_VISIBILITY(hidden)
 #define _LIBCPP_NODISCARD_ATTRIBUTE _GLIBCXX_NODISCARD
+#endif
 
 namespace dsa {
     template < class _Tp>
