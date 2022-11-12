@@ -4,3 +4,6 @@
 .DS_Store
 *.dSYM
 src/test/build/
+build/
+docs/Algorithms_document/
+.vscode/
