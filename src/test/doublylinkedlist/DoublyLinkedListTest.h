@@ -38,7 +38,7 @@ namespace dsa {
             }
     };
 
-#if 0
+#if 1
     TEST_F(LinkListTest, testEmptyList) {
         EXPECT_TRUE(list->empty());
         EXPECT_EQ(list->size(), 0);
