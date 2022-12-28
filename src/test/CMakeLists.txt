@@ -5,14 +5,15 @@ project(my_cpp_project) #name of your project
 
 add_subdirectory(googletest) # add googletest subdirectory
 
-include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
+include_directories(googletest/include      # this is so we can #include <gtest/gtest.h>
 
-include_directories(../main/doublylinkedlist)
-include_directories(../main/stack)
-
-include_directories(doublylinkedlist)
-include_directories(stack)
-# include_directories(doublylinkedlist)
+                    ../main/doublylinkedlist
+                    ../main/stack
+                    ../main/queue
+                    
+                    doublylinkedlist
+                    stack
+                    queue) 
 
 add_executable(mytests mytests.cpp) # add this executable
 
