@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefinoprstv~",
-  1: "_dns",
+  0: "_abcdefinopqrstv~",
+  1: "_dnqs",
   2: "ds",
-  3: "_abcdefiopst~",
+  3: "_abcdefiopqst~",
   4: "_c",
   5: "_cdiprsv",
   6: "_do"

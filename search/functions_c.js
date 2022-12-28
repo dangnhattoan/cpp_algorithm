@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7edoubly_5flinked_5flist_99',['~doubly_linked_list',['../classdsa_1_1doubly__linked__list.html#ae1d9d6c86b28c1d4915dcae79320d568',1,'dsa::doubly_linked_list']]]
+  ['top_104',['top',['../classdsa_1_1stack.html#ab76b95c232a7112329825e782c8a4ffb',1,'dsa::stack::top()'],['../classdsa_1_1stack.html#a1e09dff810712ab6236a2a2d1fdc56af',1,'dsa::stack::top() const']]]
 ];
