@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "DoublyLinkedListTest.h"
 #include "StackTest.h"
+#include "QueueTest.h"
 
 int main(int argc, char* argv[])
 {
